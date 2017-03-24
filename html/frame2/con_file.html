@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>content</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/jquery.min.js" ></script>
+		
+		<style>
+			.mui-bar{
+				background-color: #373c5e;
+				box-shadow: 0 1px 6px #191e39;
+				
+			}
+			.mui-title{
+				color: #FFFFFF;
+			}
+			a{
+				color: #FFFFFF;
+			}
+			.mui-bar-tab .mui-tab-item.mui-active {
+				color: #191E39;
+			}
+			.text{
+				width: 100%;
+				height: 80%;
+				margin-top: 80px;
+				padding: 15px;
+			}
+		</style>
+	</head>
+	<body onload="getarticale()">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 id="title" class="mui-title"></h1>			
+		</header>
+		
+		<div class="text" id="text">
+		</div>
+	</body>
+	<script>
+	
+	function getarticale(){
+	var a = localStorage.getItem("title1");
+	//alert(a);
+	$.ajax({
+			    url:'http://60.205.221.171:8080/Efish/user/get_article',
+			    type:'POST', //GET
+			    async:true,    //或false,是否异步
+			    timeout:5000,    //超时时间
+			    dataType:'json',
+			    data:{title:a},//返回的数据格式：json/xmlml/script/jsonp/text
+			    success:function(data,textStatus,jqXHR){
+			       var b = JSON.stringify(data.article);
+			       document.getElementById("text").innerHTML=b;
+			       	//alert(b);
+			        console.log(textStatus);
+			        console.log(jqXHR);
+			       
+			    },
+			    error:function(xhr,textStatus){
+			        console.log('错误');
+			        console.log(xhr);
+			        console.log(textStatus);
+			    },
+			    
+			});
+
+	}
+	</script>
+	
+</html>

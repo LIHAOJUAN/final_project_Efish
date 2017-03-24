@@ -1,0 +1,259 @@
+.Top{
+	width: 100%;
+	height: 20%;
+	margin-top: 0;
+}
+.head{
+	width: 50%;
+}
+
+.header{
+	width:45%;
+	margin-left: 5%;
+	margin-top: 5%;
+	float: left;
+}
+
+.head h3{
+	margin-top: 15%;
+	width:25%;
+	float: left;
+	position: relative;
+	left: 5%;
+	font-family: "微软雅黑";
+	font-weight: 100;
+	font-size: 2.3em;
+	color: #FFFFFF;
+}
+#hname{
+	margin-left: 55%;
+	color: #FFFFFF;
+	font-size: 1em;
+}
+
+.head h5{
+	margin-top: 0;
+}
+
+#month{
+	width:20% ;
+	float: right;
+	position:relative;
+	right: -4px;
+	top: 25px;
+	color: #FFFFFF;
+}
+
+#week{
+	width:25% ;
+	float: right;
+	position:relative;
+	right: -10px;
+	top: 20px;
+	color: #FFFFFF;
+
+}
+
+.demo { 
+	width:100px; 
+	min-width:100px; 
+	max-width:100px; 
+	}
+	
+#demo { 
+	 color:#FFF; 
+	 
+	 }
+#demo i { 
+	background: no-repeat top left; 
+	display:inline-block; 
+	height:12%;
+	width: 40%; 
+	line-height:25px; 
+	font-size:1.5em;
+	font-style:normal; 
+	text-align:right;
+	position: absolute;	
+	top: 15px;
+	right: 30px;
+	}
+	
+#demo i.icon-xiaoyu { 
+	background-image:url(icon/xiaoyu.png);
+    background-size: 40%;
+    float: right;
+    position: absolute;
+    top: 3%;
+    right: 5%; 
+    }
+    
+#demo i.icon-zhongyu { 
+	background-image:url(icon/xiaoyu.png);
+	background-size: 40%;
+    float: right;
+    position: absolute;
+    top: 3%;
+    right: 5%; 
+	}
+	
+#demo i.icon-dayu { 
+	background-image:url(icon/dayu.png); 
+	background-size: 40%;
+    float: right;
+    position: absolute;
+    top: 0;
+    right: 5%;
+	}
+	
+#demo i.icon-qing { 
+	background-image:url(icon/qing.png); 
+	background-size: 40%;
+    float: right;
+    position: absolute;
+    top: 3%;
+    right: 5%;}
+    
+#demo i.icon-duoyun { 
+	background-image:url(icon/duoyun.png); 
+	background-size: 40%;
+    float: right;
+    position: absolute;
+    top: 3%;
+    right: 5%;}
+    
+#demo i.icon-yin { 
+	background-image:url(icon/yin.png); 
+	background-size: 40%;
+    float: right;
+    position: absolute;
+    top: 3%;
+    right: 5%;
+    }
+    
+#demo p { 
+	font-size:0.5em;
+	width: 24%; 
+	color: #FFFFFF;
+	position: relative;
+	text-align: left;
+	float: right;
+	right: 0%;
+	margin-top: -18%;
+	}
+#demo p span { margin:5 5px; }
+
+#demo2 { 
+	width:980px; 
+	margin:0 auto; 
+	margin-top:20px;  
+	border:1px solid #ddd; 
+	padding:30px 0; 
+	overflow:hidden; 
+	}
+
+
+.Temp{
+	width:40%;
+	height: 30%;
+	background-color: transparent;
+	position: relative;
+	left: 10%;
+	float: left;
+	text-align: center;
+	border-bottom-color: #3d477d;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-right-color: #3d477d;
+	border-right-width: 1px;
+	border-right-style: solid;
+	font-family: 'SiYuan-ExtraLig97173de3915b4c';
+	color: #FFFFFF;
+    
+}
+
+.Oxy{
+	width:40%;
+	height: 30%;
+	background-color: transparent;
+	position: relative;
+    left: 10%;
+	float: left;
+    text-align: center;
+	border-bottom-color: #3d477d;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	font-family: 'SiYuan-ExtraLig97173de3915b4c';
+	color: #FFFFFF;
+}
+
+.Light{
+	width:40%;
+	height: 30%;
+	background-color:transparent;
+	position: relative;
+    left: 10%;
+	float: left;
+    text-align: center;
+	border-right-color: #3d477d;
+	border-right-width: 1px;
+	border-right-style: solid;
+	font-family: 'SiYuan-ExtraLig97173de3915b4c';
+	color: #FFFFFF;
+}
+
+.Ph{
+	width:40%;
+	height: 30%;
+	background-color: transparent;
+	position: relative;
+    text-align: center;
+    left: 10%;
+	float: left;
+	font-family: 'SiYuan-ExtraLig97173de3915b4c';
+	color: #FFFFFF;
+}
+
+.empty{
+	height: 15%;
+}
+.empty2{
+	height: 25%;
+}
+.vcenter{
+	position: absolute;
+	left: 40%;
+	top: 35%;
+	translateX(-50%);
+	traslateY(-50%);
+}
+.Pic{
+	width: 65%;
+}
+
+.show{
+	margin: 0;
+	padding: 0;
+}
+
+
+.Temp p{
+	margin-top: -40.5%;
+	font-size: 1.3em;
+	color: #FFFFFF;
+}
+.Oxy p{
+	margin-top: -40.5%;
+	font-size: 1.3em;
+	color: #FFFFFF;
+}
+.Light p{
+	margin-top: -40.5%;
+	font-size: 1.3em;
+	color: #FFFFFF;
+}
+
+.Ph p{
+	margin-top: -40.5%;
+	font-size: 1.3em;
+	color: #FFFFFF;
+}

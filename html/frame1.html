@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+		<script type="text/javascript" src="../js/jquery-1.6.2.min.js" ></script>
+		
+	
+        <style>
+        	.picTitle{
+        		 		
+        		text-align:center; 
+        		margin-top: -200px;
+        		
+        	}
+        	.picTitle h3{
+        		color: #FFFFFF;
+        		line-height: 200px;
+        		position: relative;
+        		font-size: 1.8em;
+        		font-weight: 300;
+        		
+        	}
+        	.aui-card-list-footer{
+        		margin-top: 5px;
+        	}
+        	.praise{
+        	width: 30px;
+        		height: 90px;
+        		background: url("../images/frame1/zan.png") no-repeat left top;
+        		background-size: 18px;
+        		padding-left: 30px;
+        		padding-bottom: 15px;
+        	}
+        </style>
+		
+	</head>
+
+	<body>
+		
+    <section class="aui-content " id="list">
+        
+       
+        
+        
+       
+        
+        
+    </section>
+</body>
+<script type="text/javascript" src="../js/api.js" ></script>
+<script type="text/javascript">
+    apiready = function(){
+        api.parseTapmode();
+    }
+</script>
+<script>
+	var Box = list.children;
+	for(var i = 0;i<Box.length;i++){
+		Box[i].onclick = function(e){
+			e = e||window.event;
+			var el = e.srcElement;
+			switch(el.className){
+				case 'praise':
+				praiseBox(el.parentNode.parentNode.parentNode,el);
+				break;
+			}
+		}
+	}
+	
+	function praiseBox(Box,el){
+		var txt = el.innerHTML;
+		var oldTotal = el.nextSibling.innerHTML;
+		var newTotal;
+		if(txt =='赞'){
+			newTotal =  parseInt(oldTotal)+parseInt(1);
+			el.nextSibling.innerHTML=newTotal;
+			el.innerHTML='取消赞';
+		}else if(txt == '取消赞'){
+			newTotal =parseInt(oldTotal)-parseInt(1);;
+			el.nextSibling.innerHTML=newTotal;
+			el.innerHTML='赞';
+		}
+	}
+</script>
+	<script src="../js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+	</script>
+	
+
+
+	<script type="text/javascript" src="../js/jquery.min.js" ></script>
+	<script>
+		$(document).ready(function(){
+			//alert("jjj");
+			$.ajax({
+			    url:'http://60.205.221.171:8080/Efish/user/advice',
+			    type:'GET', //GET
+			    async:true,    //或false,是否异步
+			    timeout:5000,    //超时时间
+			    dataType:'json',    //返回的数据格式：json/xmlml/script/jsonp/text			   
+			    success:function(data,textStatus,jqXHR){
+			    //	alert(data)
+			        console.log(textStatus);
+			        console.log(jqXHR);
+			        var i = data.length;
+			       for (var i;i>0;i--){
+			       	var a = i-1;
+			       	$('<div class="aui-card-list Box"><div class="aui-card-list-header aui-card-list-user aui-border-b"><div class="aui-card-list-user-avatar"><img src="../images/avatar.png" class="aui-img-round" /></div><div class="aui-card-list-user-name"><div>Expert of E-fish</div><small>One day ago</small></div><div class="aui-card-list-user-info" id="short">'+data[a].short+'</div></div><div class="aui-card-list-content-padded" onclick="openCon()"><img src="../images/frame1/pic'+a+'.jpg" /><div class="picTitle"><h3 id="'+a+'">'+data[a].title+'</h3></div></div><div class="aui-card-list-footer aui-border-t" ><div><span class="praise">赞</span><span id ="total">89</span> </div></div></div>').prependTo('#list');
+			       }
+			       var strData =JSON.stringify(data);
+			       localStorage.setItem("strData2",strData)
+			      
+
+			    },
+			    error:function(xhr,textStatus){
+			        console.log('错误');
+			        console.log(xhr);
+			        console.log(textStatus);
+			    },
+			    
+			});
+		});
+		
+	
+		function openCon(e){
+		$(document).click(function (e) { 
+var v_id = $(e.target).attr('id'); 
+//alert(v_id);
+
+		//alert("yyy");
+		if(localStorage.getItem("strData2")){
+		 //alert(localStorage.getItem("strData2"))
+		//var g = e.getAttribute("id");
+		//alert(g);
+		
+		strData2 = localStorage.getItem("strData2");
+		//alert(strData2);
+		var str = JSON.parse(strData2);
+		//alert(str);
+		var title = str[v_id].title;
+		//alert(title);
+		
+		var title1;
+        localStorage.setItem("title1",title);
+        //alert(localStorage.getItem("title1"))
+			
+			
+		mui.openWindow({
+        url:"./frame2/con_file.html",
+        id:'temp',
+        styles:{
+            width:'100%',
+            height:'100%',
+        },
+        extras:{
+     
+        },
+        createNew:false,
+        show:{
+        autoShow:true,
+        aniShow:'slide-in-right',
+        duration:'100',
+        event:'titleUpdate',
+        extras:{}
+        },
+        waiting:{
+            autoShow:true,
+        title:'正在加载...',
+        options:{
+        
+      }
+    }
+})
+	
+}
+		});
+		}
+		
+	</script>
+</html>

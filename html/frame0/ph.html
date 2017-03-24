@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Temperature</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		
+	    <link rel="stylesheet" href="../../css/mui.min.css">
+	    <link rel="stylesheet" href="../../css/temp.css" />
+	    	<script src="../../js/mui.min.js"></script>
+	    	<script type="text/javascript" src="../../js/echarts.min.js" ></script>
+
+
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 id="title" class="mui-title">PH值</h1>
+			<style>
+			html,
+			body {
+background:linear-gradient(to bottom right,#2b3151,#191e39);
+	            background: -moz-linear-gradient(bottom right,#2b3151,#191e39);
+	            background:-webkit-linear-gradient(left top,#373c5e,#191e39) ;
+	            background: -o-linear-gradient(bottom right,#2b3151,#191e39);				width:100%;
+				height: 100%;
+			}
+			.mui-bar{
+				background-color: #373c5e;
+				box-shadow: 0 1px 6px #191e39;
+				
+			}
+			.mui-title{
+				color: #FFFFFF;
+			}
+			a{
+				color: #FFFFFF;
+			}
+			.mui-bar-tab .mui-tab-item.mui-active {
+				color: #191E39;
+			}
+			
+		</style>
+		</header>
+		<div id="main" style="width: 100%;height:45%;position: relative;top: 44px;"></div>
+		<div class="tempDetail">
+			<table>
+				<tr>
+					<td valign="top">当前值</td>
+				</tr>
+				<tr>
+					<td>6.7</td>
+				</tr>
+			</table>
+			
+			<table class="tempDetail2" style="border-color: #35499a;">
+				<tr>
+					<td valign="top">理论值</td>
+				</tr>
+				<tr>
+					<td>7.2</td>
+				</tr>
+			</table>
+			
+		</div>
+		
+		<div class="circle">
+				<table class="handle">
+					<tr>
+						
+						<td>
+							<img src="../../images/frame0/temp/first.png" style="width: 18%; margin-top: 40px;"  onclick="atuo()"/>
+						</td>
+					</tr>
+				</table>
+			</div>
+	</body>	
+		<script>
+		var myChart = echarts.init(document.getElementById('main'));
+        option = {
+    title: {
+        text: 'PH值',
+        textStyle:{
+        	     color:'#fff',
+        	     fontSize:15,
+        	     fontWeight:'normal'
+        },
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['PH值','标准值)'],
+        inactiveColor:'#000000',
+        textStyle:{
+        	color:'#ffffff'//当前含氧的字体颜色
+        },
+        bottom:'5'
+    },
+    toolbox: {
+        show: true,
+        feature: {
+            dataZoom: {
+                yAxisIndex: 'none'
+            },
+            dataView: {readOnly: false},
+            magicType: {type: ['line', 'bar']},
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    xAxis:  {
+        type: 'category',
+        boundaryGap: false,
+        data: ['周一','周二','周三','周四','周五','周六','周日']
+    },
+    yAxis: {
+        type: 'value',
+        min:'6',
+        max:'7.5',
+        offset:'-8',
+        axisLabel: {
+            formatter: '{value} '
+        },
+        axisLine:{
+        	lineStyle:{
+        		color:'#fff'
+        	}
+        }
+    },
+    series: [
+        {
+            name:'PH值',
+            type:'line',
+            data:[6.1, 6.2, 6.5, 6.3, 6.2, 6.3, 6.0],
+            markPoint: {
+                data: [
+                    {type: 'max',name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }          
+        },
+        {
+            name:'标准值',
+            type:'line',
+            data:[7.0, 7.2, 7.2, 7.5, 7.3, 7.0, 7.0],
+            markPoint: {
+                data: [
+                    {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
+                ]
+            },
+            itemStyle:{
+            	     normal:{
+            	     	color:'#f1be44'
+            	     }
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'},
+                    [{
+                        symbol: 'none',
+                        x: '90%',
+                        yAxis: 'max'
+                    }, {
+                        symbol: 'circle',
+                        label: {
+                            normal: {
+                                position: 'middle',
+                                formatter: '最大值'
+                            }
+                        },
+                        lineStyle:{
+                        	        normal:{
+                        	        	     color:'rgb(238, 197, 102)'
+                        	        }
+                        },
+                        type: 'max',
+                        name: '最高点'
+                    }]
+                ]
+            }
+        }
+    ]
+};
+
+        myChart.setOption(option);
+		</script>
+	
+	<script>
+	function atuo(){
+	mui.toast("您已成功设置为自动调节模式！")
+	}
+	</script>
+</html>

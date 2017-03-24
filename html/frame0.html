@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Home</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/frame0.css" />
+		<link href='http://cdn.webfont.youziku.com/webfonts/nomal/88908/46870/58c7c12cf629e8111c6747d9.css' rel='stylesheet' type='text/css' />
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/jquery.leoweather.min.js"></script>
+		<script type="text/javascript" src="../js/mui.js" ></script>
+		<script type="text/javascript" src="../js/mui.min.js" ></script>
+		
+		<style>
+			body{
+				background:linear-gradient(to bottom right,#2b3151,#191e39);
+	            background: -moz-linear-gradient(bottom right,#2b3151,#191e39);
+	            background:-webkit-linear-gradient(left top,#373c5e,#191e39) ;
+	            background: -o-linear-gradient(bottom right,#2b3151,#191e39);
+			}
+			html,body{
+				height: 100%;
+				width: 100%;
+			}
+
+		</style>
+		
+	</head>
+	<body>
+	<!--header and date!-->
+	  <div class="Top">
+	  	<div class="head">
+	  	  <img src="../images/headPic.png"  class="header"/>
+	  	  
+	  	  <h3 id="date"></h3>
+	  	  <h6 id="month">7月</h6>
+	  	  <h6 id="week">星期二</h6>
+	  	  <h5 id="hname">Christina</h5>  	  
+	  	</div>
+	  </div>
+  
+	  
+	  <!--
+      	作者：1135512949@qq.com
+      	时间：2017-03-14
+      	描述：weather
+      -->
+      <div id="demo">
+		<script>$('#demo').leoweather({format:'<i class="icon-{图标}">{气温}℃</i><p>{城市}<span>|</span>{天气}<span>|</span>{风向}{风级}级</p>'});</script>
+	  </div>
+	
+	  <!--
+      	作者：1135512949@qq.com
+      	时间：2017-03-14
+      	描述：control
+      -->
+	
+      <div class="Temp" id="Temp">
+      	<div class="empty"></div>
+      	<img src="../images/frame0/Temp.png" class="Pic" onclick="openTemp()"/>
+      	<p>25˚C</p>
+      	<div class="empty2"></div>
+      	温度
+      </div>
+      <div class="Oxy">
+      	<div class="empty"></div>
+      	<img src="../images/frame0/Oxy.png" class="Pic" onclick="openOxy()" />
+      	<p>55%</p>
+      	<div class="empty2"></div>
+      	水氧
+      </div>
+
+      <div class="Light">
+      	<div class="empty"></div>
+      	<img src="../images/frame0/Light.png" class="Pic" onclick="openLight()" />
+      	<p>夜间</p>
+      	<div class="empty2"></div>
+      	灯光
+      </div>
+      <div class="Ph">
+      	<div class="empty"></div>
+      	<img src="../images/frame0/Ph.png" class="Pic" onclick="openPh()" />
+      	<p>6.7</p>
+      	<div class="empty2"></div>
+      	PH
+      </div>
+    
+	</body>
+	<script>
+		
+		var myDate = new Date;
+	    var m = myDate.getMonth();
+	    var Month = m+1;
+		document.getElementById("month").innerHTML = Month+"月";
+		
+		var whichday = myDate.getDate();
+		document.getElementById("date").innerHTML = whichday;
+		
+		
+		var w = myDate.getDay();
+		var Week;
+		if(w == 0){
+			Week = "星期日";
+		}else if(w == 1){
+			Week= "星期一";
+		}else if(w == 2){
+			Week="星期二";
+		}else if(w == 3){
+			Week= "星期三";
+		}else if(w == 4){
+			Week= "星期四";
+		}else if(w == 5){
+			
+			Week = "星期五";
+		}else if(w == 6){
+			Week="星期六"
+		}
+		document.getElementById("week").innerHTML = Week;
+		
+		
+	function openTemp(){
+		mui.openWindow({
+        url:"./frame0/temp.html",
+        id:'temp',
+        styles:{
+            width:'100%',
+            height:'100%',
+        },
+        extras:{
+     
+        },
+        createNew:false,
+        show:{
+        autoShow:true,
+        aniShow:'slide-in-right',
+        duration:'100',
+        event:'titleUpdate',
+        extras:{}
+        },
+        waiting:{
+            autoShow:true,
+        title:'正在加载...',
+        options:{
+        
+      }
+    }
+})
+	
+}	
+	
+function openOxy(){
+		mui.openWindow({
+        url:"./frame0/oxy.html",
+        id:'temp',
+        styles:{
+            width:'100%',
+            height:'100%',
+        },
+        extras:{
+     
+        },
+        createNew:false,
+        show:{
+        autoShow:true,
+        aniShow:'slide-in-right',
+        duration:'100',
+        event:'titleUpdate',
+        extras:{}
+        },
+        waiting:{
+            autoShow:true,
+        title:'正在加载...',
+        options:{
+        
+      }
+    }
+})
+	
+}	
+
+function openLight(){
+		mui.openWindow({
+        url:"./frame0/light.html",
+        id:'temp',
+        styles:{
+            width:'100%',
+            height:'100%',
+        },
+        extras:{
+     
+        },
+        createNew:false,
+        show:{
+        autoShow:true,
+        aniShow:'slide-in-right',
+        duration:'100',
+        event:'titleUpdate',
+        extras:{}
+        },
+        waiting:{
+            autoShow:true,
+        title:'正在加载...',
+        options:{
+        
+      }
+    }
+})
+	
+}	
+
+function openPh(){
+		mui.openWindow({
+        url:"./frame0/ph.html",
+        id:'temp',
+        styles:{
+            width:'100%',
+            height:'100%',
+        },
+        extras:{
+     
+        },
+        createNew:false,
+        show:{
+        autoShow:true,
+        aniShow:'slide-in-right',
+        duration:'100',
+        event:'titleUpdate',
+        extras:{}
+        },
+        waiting:{
+            autoShow:true,
+        title:'正在加载...',
+        options:{
+        
+      }
+    }
+})
+	
+}	
+
+	</script>
+	
+</html>

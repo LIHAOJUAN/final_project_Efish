@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>release</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" href="../../css/feedback-page.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+	    <script src="../../js/mui.min.js"></script>
+<style>
+			html,
+			body {
+                background:linear-gradient(to bottom right,#e7e8ec,#7f818d);
+	            background: -moz-linear-gradient(bottom right,#e7e8ec,#7f818d);
+	            background:-webkit-linear-gradient(left top,#e7e8ec,#7f818d) ;
+	            background: -o-linear-gradient(bottom right,#e7e8ec,#7f818d);				
+	            width:100%;
+				height: 100%;
+
+			
+			}
+			.mui-bar{
+				background-color: #373c5e;
+				box-shadow: 0 1px 6px #191e39;
+				
+			}
+			.mui-title{
+				color: #FFFFFF;
+			}
+			a{
+				color: #FFFFFF;
+			}
+			.mui-bar-tab .mui-tab-item.mui-active {
+				color: #191E39;
+			}
+			
+		</style>
+		
+<style type="text/css">
+*{margin:0px; padding:0px;}
+ #qq{
+	       width:100%;
+	       height:270px;
+	       background:#fff;
+	       position: relative;
+	       top: 40px;
+	     }
+#qq p{
+        	font-size:12px; 
+        	color:#666; 
+        	font-family:"微软雅黑";
+		line-height:45px; 
+		text-indent:20px;
+		}
+#qq .message{width:90%; height:70px;margin:0px auto; outline:none;
+			border:1px solid #ddd; /*粗细 风格 颜色*/
+			-webkit-user-select:text;}
+#qq .But{width:90%;height:35px;margin:15px auto 0px; position:relative;/*相对，参考对象*/}
+#qq .But img.bq{
+	float:left;
+	margin-left: 5px;;}
+#qq .But span.submit{
+	width:80px;
+	height:30px; 
+	background:#191E39;					
+	display:block; 
+	float:right;/*右浮动*/
+	margin-right: 3px;								
+	line-height:30px;
+	border-radius:5px;								
+	cursor:pointer;/*手指*/
+	color:#fff;
+	font-size:12px;
+	text-align:center;
+	font-family:"微软雅黑";}
+
+/*face begin*/
+
+#qq .But .face{
+	width:100%; 
+	height:auto;
+	background:#fff; 
+	padding:10px;
+	border:1px solid #ddd; 
+	box-shadow:2px 2px 3px #666;
+	position:absolute;/*绝对定位*/ 
+	top:41px; 
+	left:15px;
+	z-index: 2000000;
+	display:none;/*隐藏*/}
+#qq .But .face ul li{
+    width:22px;
+	height:22px; 
+	margin: 2px;
+	list-style-type:none;/*去掉圆点*/ 
+	float:left; 
+	cursor:pointer;}
+
+/*msgCon begin*/
+.msgCon{
+	width: 100%;
+	height:40%;
+	position: relative;
+	top: 40px;
+.mui-pages .mui-page {
+    display: block;
+}
+.mui-page-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #efeff4;
+}
+.msgCon .msgBox{ background:#fff;padding:10px; margin-top:20px;}
+.msgCon .msgBox dl{height:60px; border-bottom:1px dotted #ddd;}
+.msgCon .msgBox dl dt{width:50px; height:50px;float:left;}
+.msgCon .msgBox dl dt img{border-radius:25px;}
+.msgCon .msgBox dl dd{width:80%; height:50px;  line-height:50px;float:right; font-size:16px;font-family:"微软雅黑";}
+.msgCon .msgBox .msgTxt{font-size:12px; color:#666; line-height:25px;}
+
+.upload{
+	height: 180px;
+}
+</style>
+
+
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 id="title" class="mui-title">我说</h1>			
+		</header>
+		
+		
+<div id="qq">
+	<p>有什么新鲜事想告诉大家?一定要配上一张漂亮的图片哦</p>
+	
+	<div id="feedback" class="mui-page feedback">
+		<div class="mui-page-content">
+		 <div id="message" class="message" contentEditable='true'></div>
+	      <div id='image-one' class="row image-list">
+	      	<form  id="uploadForm" class="upload" method="post" action="/user/upfile" enctype="multipart/form-data">
+    		      <input type="file" name="picture" id="picture">
+    		     
+          	</form>
+	      </div>
+	    </div>
+	</div>
+
+	<div class="But">
+		<span class="bq" style="margin-left: 10px;">
+			<img src="../../images/bq.png" style="width: 16px;" />
+		</span>
+		<!--
+        	作者：1135512949@qq.com
+        	时间：2017-03-18
+        	描述：
+        
+		<span class="mui-icon mui-icon-camera" style="margin-left: 10px;">
+		</span>
+		-->
+		<span class='submit' id="submit">发表</span>
+		<!--face begin-->
+		<div class="face">
+			<ul>
+				<li><img src="../../images/expressions/zz2_thumb.gif" title="[织]" ></li>
+				<li><img src="../../images/expressions/horse2_thumb.gif" title="神马]"></li>
+				<li><img src="../../images/expressions/fuyun_thumb.gif" title="[浮云]"></li>
+				<li><img src="../../images/expressions/geili_thumb.gif" title="[给力]"></li>
+				<li><img src="../../images/expressions/wg_thumb.gif" title="[围观]"></li>
+				<li><img src="../../images/expressions/vw_thumb.gif" title="[威武]"></li>
+				<li><img src="../../images/expressions/panda_thumb.gif" title="[熊猫]"></li>
+				<li><img src="../../images/expressions/rabbit_thumb.gif" title="兔子]"></li>
+				<li><img src="../../images/expressions/otm_thumb.gif" title="[奥特曼]"></li>
+				<li><img src="../../images/expressions/j_thumb.gif" title="[囧]"></li>
+				<li><img src="../../images/expressions/hufen_thumb.gif" title="[互粉]"></li>
+				<li><img src="../../images/expressions/liwu_thumb.gif" title="[礼物]"></li>
+				<li><img src="../../images/expressions/smilea_thumb.gif" title="呵呵]"></li>
+				<li><img src="../../images/expressions/tootha_thumb.gif" title="嘻嘻]"></li>
+				<li><img src="../../images/expressions/laugh.gif" title="[哈哈]"></li>
+				<li><img src="../../images/expressions/tza_thumb.gif" title="[可爱]"></li>
+				<li><img src="../../images/expressions/kl_thumb.gif" title="[可怜]"></li>
+				<li><img src="../../images/expressions/kbsa_thumb.gif" title="[挖鼻屎]"></li>
+				<li><img src="../../images/expressions/cj_thumb.gif" title="[吃惊]"></li>
+				<li><img src="../../images/expressions/shamea_thumb.gif" title="[害羞]"></li>
+				<li><img src="../../images/expressions/zy_thumb.gif" title="[挤眼]"></li>
+				<li><img src="../../images/expressions/bz_thumb.gif" title="[闭嘴]"></li>
+				<li><img src="../../images/expressions/bs2_thumb.gif" title="[鄙视]"></li>
+				<li><img src="../../images/expressions/lovea_thumb.gif" title="[爱你]"></li>
+				<li><img src="../../images/expressions/sada_thumb.gif" title="[泪]"></li>
+				<li><img src="../../images/expressions/heia_thumb.gif" title="[偷笑]"></li>
+				<li><img src="../../images/expressions/qq_thumb.gif" title="[亲亲]"></li>
+				<li><img src="../../images/expressions/sb_thumb.gif" title="[生病]"></li>
+				<li><img src="../../images/expressions/mb_thumb.gif" title="[太开心]"></li>
+				<li><img src="../../images/expressions/ldln_thumb.gif" title="[懒得理你]"></li>
+				<li><img src="../../images/expressions/yhh_thumb.gif" title="[右哼哼]"></li>
+				<li><img src="../../images/expressions/zhh_thumb.gif" title="[左哼哼]"></li>
+				<li><img src="../../images/expressions/x_thumb.gif" title="[嘘]"></li>
+				<li><img src="../../images/expressions/cry.gif" title="[衰]"></li>
+				<li><img src="../../images/expressions/wq_thumb.gif" title="[委屈]"></li>
+				<li><img src="../../images/expressions/t_thumb.gif" title="[吐]"></li>
+				<li><img src="../../images/expressions/k_thumb.gif" title="[打哈气]"></li>
+				<li><img src="../../images/expressions/bba_thumb.gif" title="[抱抱]"></li>
+				<li><img src="../../images/expressions/angrya_thumb.gif" title="[怒]"></li>
+				<li><img src="../../images/expressions/yw_thumb.gif" title="[疑问]"></li>
+				<li><img src="../../images/expressions/cza_thumb.gif" title="[馋嘴]"></li>
+				<li><img src="../../images/expressions/88_thumb.gif" title="[拜拜]"></li>
+				<li><img src="../../images/expressions/sk_thumb.gif" title="[思考]"></li>
+				<li><img src="../../images/expressions/sweata_thumb.gif" title="[汗]"></li>
+				<li><img src="../../images/expressions/sleepya_thumb.gif" title="[困]"></li>
+				<li><img src="../../images/expressions/sleepa_thumb.gif" title="[睡觉]"></li>
+				<li><img src="../../images/expressions/money_thumb.gif" title="[钱]"></li>
+				<li><img src="../../images/expressions/sw_thumb.gif" title="[失望]"></li>
+				<li><img src="../../images/expressions/cool_thumb.gif" title="[酷]"></li>
+				<li><img src="../../images/expressions/hsa_thumb.gif" title="[花心]"></li>
+				<li><img src="../../images/expressions/hatea_thumb.gif" title="[哼]"></li>
+				<li><img src="../../images/expressions/gza_thumb.gif" title="[鼓掌]"></li>
+				<li><img src="../../images/expressions/dizzya_thumb.gif" title="[晕]"></li>
+				<li><img src="../../images/expressions/bs_thumb.gif" title="[悲伤]"></li>
+				<li><img src="../../images/expressions/crazya_thumb.gif" title="[抓狂]"></li>
+				<li><img src="../../images/expressions/h_thumb.gif" title="[黑线]"></li>
+				<li><img src="../../images/expressions/yx_thumb.gif" title="[阴险]"></li>
+				<li><img src="../../images/expressions/nm_thumb.gif" title="[怒骂]"></li>
+				<li><img src="../../images/expressions/hearta_thumb.gif" title="[心]"></li>
+				<li><img src="../../images/expressions/unheart.gif" title="[伤心]"></li>
+				<li><img src="../../images/expressions/pig.gif" title="[猪头]"></li>
+				<li><img src="../../images/expressions/ok_thumb.gif" title="[ok]"></li>
+				<li><img src="../../images/expressions/ye_thumb.gif" title="[耶]"></li>
+				<li><img src="../../images/expressions/good_thumb.gif" title="[good]"></li>
+				<li><img src="../../images/expressions/no_thumb.gif" title="[不要]"></li>
+				<li><img src="../../images/expressions/z2_thumb.gif" title="[赞]"></li>
+				<li><img src="../../images/expressions/come_thumb.gif" title="[来]"></li>
+				<li><img src="../../images/expressions/sad_thumb.gif" title="[弱]"></li>
+				<li><img src="../../images/expressions/lazu_thumb.gif" title="[蜡烛]"></li>
+				<li><img src="../../images/expressions/clock_thumb.gif" title="[钟]"></li>
+				<li><img src="../../images/expressions/cake.gif" title="[蛋糕]"></li>
+				<li><img src="../../images/expressions/m_thumb.gif" title="[话筒]"></li>
+				<li><img src="../../images/expressions/weijin_thumb.gif" title="[围脖]"></li>
+				<li><img src="../../images/expressions/lxhzhuanfa_thumb.gif" title="[转发]"></li>
+				<li><img src="../../images/expressions/lxhluguo_thumb.gif" title="[路过这儿]"></li>
+				<li><img src="../../images/expressions/bofubianlian_thumb.gif" title="[bofu变脸]"></li>
+				<li><img src="../../images/expressions/gbzkun_thumb.gif" title="[gbz困]"></li>
+				<li><img src="../../images/expressions/boboshengmenqi_thumb.gif" title="[生闷气]"></li>
+				<li><img src="../../images/expressions/chn_buyaoya_thumb.gif" title="[不要啊]"></li>
+				<li><img src="../../images/expressions/daxiongleibenxiong_thumb.gif" title="[dx泪奔]"></li>
+				<li><img src="../../images/expressions/cat_yunqizhong_thumb.gif" title="[运气中]"></li>
+				<li><img src="../../images/expressions/youqian_thumb.gif" title="[有钱]"></li>
+				<li><img src="../../images/expressions/cf_thumb.gif" title="[冲锋]"></li>
+				<li><img src="../../images/expressions/camera_thumb.gif" title="[照相机]"></li>	
+			</ul>
+		</div>
+		<!--face end-->
+	</div>
+</div>
+<!--qq end-->
+<div id="time1"></div>
+<!--msgCon begin-->
+
+
+
+    <script src="../../js/mui.min.js "></script>
+	<script src="../../js/mui.view.js "></script>
+	<script src='../../libs/easymob-webim-sdk/jquery-1.11.1.js'></script>
+	<script src='../../libs/easymob-webim-sdk/strophe-custom-2.0.0.js'></script>
+	<script src='../../libs/easymob-webim-sdk/json2.js'></script>
+	<script src="../../libs/easymob-webim-sdk/easemob.im-1.0.5.js"></script>
+	<script src='../../js/feedback.js'></script>
+	<script src="../../js/feedback-page.js"></script>
+	<script src="../../js/mui.locker.js"></script>
+	<script src="../../js/app.js"></script>
+
+<script type="text/javascript" src="../../js/jquery-1.10.2.min.js" ></script>
+<script type="text/javascript">
+
+	//点击小图片，显示表情
+	$(".bq").click(function(e){
+		$(".face").slideDown();//慢慢向下展开
+		e.stopPropagation();   //阻止冒泡事件
+	});
+
+	//在桌面任意地方点击，他是关闭
+	$(document).click(function(){
+		$(".face").slideUp();//慢慢向上收
+	});
+
+	//点击小图标时，添加功能
+	$(".face ul li").click(function(){
+		var simg=$(this).find("img").clone();
+		$(".message").append(simg);
+	});
+
+	//点击发表按扭，发表内容
+	$("span.submit").click(function(){
+
+		var txt=$(".message").html();
+		if(txt==""){
+			$('.message').focus();//自动获取焦点
+			return;
+		}
+
+		$(".msgCon").prepend("<div class='msgBox'><dl><dt><img src='../../images/expressions/tx.jpg' width='50' height='50'/></dt><dd>神马都是浮云</dd></dl><div class='msgTxt'>"+txt+"</div></div>");
+	});
+
+</script>
+
+<script>
+	$("#submit").click(function(){
+		
+		
+		  var username=localStorage.getItem("userName");
+		  //alert(username);
+		  var usertext=$(".message").html();
+		  //alert(usertext);
+		  var formElement = document.getElementById("uploadForm");
+		  //var relInfo = formElement || '';
+          formData = new FormData(formElement);
+          
+         formData.append("username", username);
+         formData.append("usertext", usertext);
+
+
+		  //var usertext=$("#message").innerHTML();
+		  //var picture1=$("#picture").val();
+            //var picture = new FormData($('#uploadForm')[0]);
+		  //var picture=$("input[name='picture']").val();
+		  
+		  //alert(picture)
+		  $.ajax({
+			    url:'http://60.205.221.171:8080/Efish/user/upfile',
+			    type:'POST', //GET
+			    async:true,    //或false,是否异步
+			    data: formData,
+                processData: false,
+                contentType: false,
+			    timeout:20000,    //超时时间
+			    dataType:'json',    //返回的数据格式：json/xmlml/script/jsonp/text			   
+			    success:function(data,textStatus,jqXHR){
+			        console.log(textStatus);
+			        console.log(jqXHR);
+			        mui.toast('您已发布成功！');
+			       
+			    },
+			    error:function(xhr,textStatus){
+			        console.log('错误');
+			        console.log(xhr);
+			        console.log(textStatus);
+			        alert(textStatus);
+			    },
+			   
+			});
+		
+	 });
+</script>
+
+				
+		
+	</body>
+</html>
